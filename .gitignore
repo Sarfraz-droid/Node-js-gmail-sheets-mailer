@@ -1,3 +1,4 @@
 src/credentials.json
 src/sheets_data.json
 src/token.json
+node_modules/
