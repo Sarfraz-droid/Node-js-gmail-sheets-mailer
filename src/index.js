@@ -43,6 +43,11 @@ app.post('/newsletter/add',async (req,res) => {
 
 });
 
+app.get('/auth',async (req,res) => {
+    const auth = await Token.runAuth();
+    res.send(auth);
+});
+
 app.get('/callback',(req,res)=>{
     res.json(req.query);
 })

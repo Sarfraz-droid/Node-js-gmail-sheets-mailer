@@ -38,13 +38,7 @@ function runAuth(){
       });
 }
 
-/**
- * 
- * Create an OAuth2 client with the given credentials, and then execute the
- * given callback function.
- * @param {Object} credentials The authorization client credentials.
- * @param {function} callback The callback to call with the authorized client.
- */
+
 function authorize(credentials, callback) {
   const {client_secret, client_id, redirect_uris} = credentials.web;
   const oAuth2Client = new google.auth.OAuth2(
@@ -58,12 +52,7 @@ function authorize(credentials, callback) {
   });
 }
 
-/**
- * Get and store new token after prompting for user authorization, and then
- * execute the given callback with the authorized OAuth2 client.
- * @param {google.auth.OAuth2} oAuth2Client The OAuth2 client to get token for.
- * @param {getEventsCallback} callback The callback for the authorized client.
- */
+
 function getNewToken(oAuth2Client, callback) {
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: 'offline',
@@ -89,11 +78,7 @@ function getNewToken(oAuth2Client, callback) {
   });
 }
 
-/**
- * Lists the labels in the user's account.
- *
- * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
- */
+
 function listLabels(auth) {
   const gmail = google.gmail({version: 'v1', auth});
   gmail.users.labels.list({
@@ -111,7 +96,6 @@ function listLabels(auth) {
     }
   });
 }
-// [END gmail_quickstart]
 
 module.exports = {
   SCOPES,
